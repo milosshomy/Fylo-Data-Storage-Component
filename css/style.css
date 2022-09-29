@@ -1,0 +1,195 @@
+/* Reset */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+figure,
+hr,
+a {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+/* Variables */
+
+:root {
+  --gradient-clr1: hsl(6, 100%, 80%);
+  --gradient-clr2: hsl(335, 100%, 65%);
+  --pale-blue-clr: hsl(243, 100%, 93%);
+  --grayish-blue-clr: hsl(229, 7%, 55%);
+  --dark-blue-clr: hsl(228, 56%, 26%);
+  --very-dark-blue-clr: hsl(229, 57%, 11%);
+  --white-clr: hsl(0, 0%, 100%);
+  --fs: 14px;
+  --primary-ff: "Raleway", sans-serif;
+}
+
+body {
+  font-family: var(--primary-ff);
+  font-size: var(--fs);
+  background: url(../img/bg-desktop.png) no-repeat bottom/100%
+    var(--very-dark-blue-clr);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+}
+
+.wrapper {
+  padding: 30px;
+  background-color: var(--dark-blue-clr);
+  border-radius: 1rem;
+}
+
+.round-corner {
+  border-top-right-radius: 5rem;
+}
+
+.logo {
+  margin-bottom: 1.5rem;
+}
+
+.box {
+  background-color: var(--very-dark-blue-clr);
+  padding: 1rem;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.box:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.col-12:nth-child(2) {
+  align-self: flex-end;
+}
+
+.text {
+  color: var(--grayish-blue-clr);
+  margin-bottom: 1rem;
+}
+
+.pale-blue {
+  color: var(--pale-blue-clr);
+  font-weight: 700;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 1rem;
+  background-color: var(--very-dark-blue-clr);
+  border-radius: 100vh;
+  margin-bottom: 1rem;
+}
+
+.inner-progress-bar {
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--gradient-clr1),
+    var(--gradient-clr2)
+  );
+  border-radius: 100vh;
+  margin: 3px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.selector {
+  width: 10px;
+  height: 10px;
+  background-color: var(--pale-blue-clr);
+  border-radius: 50%;
+  position: absolute;
+  right: 0%;
+  margin-right: 2px;
+}
+
+.tooltip-box {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  padding: 2rem;
+  background-color: var(--white-clr);
+  right: 10%;
+  top: -25%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem 0.5rem 0 0.5rem;
+}
+
+.tooltip-box::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 0%;
+  bottom: -10%;
+  background-color: var(--white-clr);
+  rotate: 90deg;
+  transform: skew(-45deg);
+}
+
+h1 {
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.tooltip-box .text {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* Media Queries */
+
+@media all and (max-width: 768px) {
+  body {
+    background: url(../img/bg-mobile.png) no-repeat top left/100% 100%
+      var(--very-dark-blue-clr);
+  }
+
+  .tooltip-box {
+    left: 50%;
+    top: 100%;
+    translate: -50% -50%;
+    border-radius: 0.5rem;
+  }
+
+  .tooltip-box::before {
+    visibility: hidden;
+  }
+}
